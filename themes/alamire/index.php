@@ -12,9 +12,8 @@
             <a href="<?php echo record_url($item);?>"><?php echo item_image('fullsize', array(), 0, $item);?></a>
 
             <div class="slide-title slide-text">                    
-                <a href="<?php echo record_url($item);?>"><?php echo metadata($item,array('Dublin Core','Title')); ?>,</a>
-
-                <a class="slide-content" href="<?php echo record_url($item);?>"><?php echo metadata($item,array('Dublin Core','Description'),array('snippet'=>50)); ?></a>
+                <a href="<?php echo record_url($item);?>"><?php echo metadata($item,array('Dublin Core','Title')); ?>,
+                <?php echo metadata($item,array('Dublin Core','Description'),array('snippet'=>80)); ?></a>
             </div>              
 
             </li>

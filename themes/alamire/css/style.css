@@ -1080,8 +1080,8 @@ header:after {
 }
 
 #slider img{
-    width:100%;
-   border:2px solid #f4f4f4;
+   width:100%;    
+   border:1px dotted #cc6633;
 }
 
 #slider{
@@ -1094,19 +1094,17 @@ header:after {
 .slide-text{
     padding:5px 0px 15px 10px;
     float:right;
-    width:100%;
+    width:80%;
+    
 }
 
-#slider .slide-text a{    
+#slider .slide-text a{ 
     color:#444;
-    background:#f4f4f4;
-    padding:2px 3px;
-    line-height: 28px;
+    font-size:85%;
+    line-height: 20px;
+    text-decoration:none;    
 }
 
-#slider .slide-content {
-    text-decoration:none;
-}
 
 #featured-item,
 #featured-collection,
