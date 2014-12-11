@@ -408,7 +408,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 25px;
   line-height: 36px;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -520,7 +520,7 @@ header {
   width: 960px;
   padding: 1em 0 0 0;
   position: relative;
-  border-bottom:1px solid #f4f4f4;
+  border-bottom:1px solid #f2f2f2;
 }
 header:after {
   content: "\0020";
@@ -580,7 +580,7 @@ header:after {
   border-width: 1px 1px 0 1px;
 }
 #header-left{
-    border-bottom: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f2f2f2;
     overflow:auto;
 }
 
@@ -838,7 +838,7 @@ header:after {
   text-decoration: none;
   display: block;
   padding: 0.5em 18px;
-  border-left: 1px solid #f4f4f4;
+  border-left: 1px solid #f2f2f2;
   color:#444;
   
 }
@@ -952,6 +952,11 @@ header:after {
   padding: 2.5em 0px 1.5em 0;
   z-index: 0;
 }
+
+#content h2{
+    margin-top:0;
+}
+
 #content:after {
   content: "\0020";
   display: block;
@@ -1074,9 +1079,9 @@ header:after {
     font-family: "News Cycle",sans-serif;
 }
 
-#home #content h2 {
-  letter-spacing: .1em;
-  margin-top:0;
+#content h2 {
+  letter-spacing: 0.1em;
+  margin:0 0 2em 0;  
 }
 
 #slider img{
@@ -1137,7 +1142,7 @@ header:after {
 
 #recent-items .item {
   overflow: hidden;
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: 1px solid #f2f2f2;
 }
 #recent-items .item .image {
   height: 6em;
@@ -1163,9 +1168,7 @@ header:after {
 .items #content {
   position: relative;
   margin: 0 auto;
-  padding: 0;
   width: 960px;
-  padding: 1.5em 0px;
 }
 .items #content:after {
   content: "\0020";
@@ -1174,6 +1177,7 @@ header:after {
   clear: both;
   visibility: hidden;
 }
+
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .items #content {
     width: 768px;
@@ -1192,6 +1196,15 @@ header:after {
 
 .items .item + .pagination-nav .pagination {
   margin-top: 1.5em;
+}
+
+#item-metadata h2{
+    margin:0;
+    font-size:12px;
+}
+
+.item-meta{
+    overflow:hidden;
 }
 
 #next-item {
@@ -1773,11 +1786,11 @@ ul.title-list {
 footer {
   clear: both;
   position: relative;
-  padding: 0.5em 0 0 0;
+  padding: 1.5em 0 0 0;
   width: 960px;
   overflow: hidden;
   margin: 1.5em auto 1em auto;
-  border-top:1px solid #f4f4f4;
+  border-top:1px solid #f2f2f2;
 }
 footer:after {
   content: "\0020";
@@ -2086,6 +2099,19 @@ footer nav + p {
 #collection-tree {
   margin-left: auto;
   margin-right: auto;
+}
+
+#contact-form input[type=text], #contact-form input[type=password], #contact-form textarea {
+  border: 1px solid #eee;
+  margin:10px 0;
+}
+
+#contact-form input[type="checkbox"], #contact-form input[type="radio"] {
+  vertical-align: middle;
+}
+
+#contact-form label{
+    font-weight:bold;
 }
 
 /* @end */

@@ -49,23 +49,9 @@
                 
                  <div id="primary-nav">
                 
-                <ul class="navigation">
-                    <li class="current">
-                        <a href="/omeka/alamire/">Home</a>
-                    </li>
-                    <li>
-                        <a href="/omeka/alamire/items/browse">Collection</a>
-                    </li>
-                    <li>
-                        <a href="/omeka/alamire/">News</a>
-                    </li>
-                    <li>
-                        <a href="/omeka/alamire/contact">Contact</a>
-                    </li>
-                </ul>
-                
+               
              <?php
-                  //echo public_nav_main();
+                  echo public_nav_main();
              ?>
             </div>
           </div>
@@ -89,8 +75,13 @@
             </div>
             
             <script>
-                jQuery(document).ready(function(){
+                jQuery(document).ready(function(){                    
+                    var val = '<?php echo array_key_exists('q', $_GET) ? $_GET['q'] : '';?>';
                     jQuery('#query').attr('placeholder','Search the collection...');
+                    if(val!=''){                     
+                        jQuery('#query').val(val);
+                    }
+      
                 });
             </script>
             
