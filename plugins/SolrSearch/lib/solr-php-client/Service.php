@@ -1172,7 +1172,7 @@ class Apache_Solr_Service
 		$queryString = $this->_generateQueryString($params);
 
 		if ($method == self::METHOD_GET)
-		{  echo  $this->_searchUrl;
+		{
 			return $this->_sendRawGet($this->_searchUrl . $this->_queryDelimiter . $queryString);
 		}
 		else if ($method == self::METHOD_POST)
