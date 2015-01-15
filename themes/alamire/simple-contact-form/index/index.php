@@ -29,7 +29,11 @@
           <?php echo $this->formTextarea('message', $message, array('class'=>'textinput', 'rows' => '10')); ?>
           </div>
         </div>
-            
+        
+        <div class="field">
+            <?php echo $this->formLabel('account', 'Do you want to receive an account for the IDEM database?'); ?>
+            <?php echo $this->formCheckbox('account','0',array('checked'=>false));  ?>           
+        </div>    
         <div class="field">
             <?php echo $this->formLabel('newsletter', 'Do you want to receive the Alamire newsletter?'); ?>
             <?php echo $this->formCheckbox('newsletter','0',array('checked'=>true));  ?>           
