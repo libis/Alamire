@@ -45,7 +45,7 @@ function libis_side_gallery($item,$size=500){
 
 function libis_get_news($count = 3)
 {
-    $items = get_records('Item',array('type'=>'News'));
+    $items = get_records('Item',array('type'=>'Manuscript','featured'=>true));
     if ($items) {
         $html = '';
         foreach ($items as $item) {
@@ -53,7 +53,7 @@ function libis_get_news($count = 3)
             release_object($item);
         }
     } else {
-        $html = '<p>' . __('No recent items available.') . '</p>';
+        $html = '<p>' . __('No featured items available.') . '</p>';
     }
     return $html;
 }
