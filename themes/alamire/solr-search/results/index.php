@@ -93,6 +93,11 @@
         <?php echo link_to_item(item_image('thumbnail')); ?>
     </div>
     <?php endif; ?>  
+    <?php if(digitool_item_has_digitool_url($item)): ?>
+        <div class="item-img">
+            <?php echo link_to_item(digitool_get_thumb_for_browse($item));?>            
+        </div>
+    <?php endif; ?>
       <!-- Header. -->
       <div class="result-header">
 

@@ -5,15 +5,15 @@
     <?php endif; ?>
         
     <ul id="slider">
-        <?php $items = get_records('Item', array('type'=>'Image'));?>
+        <?php $items = get_records('Item', array('type'=>'Manuscript'));?>
         <?php $current=true;$class="";?>
         <?php foreach($items as $item):?>
             <li>
-            <a href="<?php echo record_url($item);?>"><?php echo item_image('fullsize', array(), 0, $item);?></a>
+            <a href="<?php echo record_url($item);?>"><img src="<?php echo digitool_get_thumb_url($item);?>"></a>
 
             <div class="slide-title slide-text">                    
-                <a href="<?php echo record_url($item);?>"><?php echo metadata($item,array('Dublin Core','Title')); ?>,
-                <?php echo metadata($item,array('Dublin Core','Description'),array('snippet'=>80)); ?></a>
+                <a href="<?php echo record_url($item);?>"><?php echo metadata($item,array('Item Type Metadata','Bibliographical orientation')); ?>
+               </a>
             </div>              
 
             </li>
@@ -51,7 +51,7 @@
     ?>
     <div id="recent-items">
         <h2>News</h2>
-        <?php echo recent_items($recentItems); ?>
+        <?php echo libis_get_news(); ?>
         <p class="view-items-link">&raquo; <a href="<?php echo html_escape(url('items')); ?>">News archive</a></p>
     </div><!--end recent-items -->
     <?php endif; ?>
