@@ -56,7 +56,7 @@
             </div>
           </div>
                 <div id="site-title-text">
-                      <?php echo link_to_home_page(theme_logo()); ?>
+                    <a href="<?php echo url("/");?>">IDEM</a>
                       <?php if ($description = option('description')): ?>
                       <div id="description"><?php echo $description; ?></div>
                    <?php endif; ?>
