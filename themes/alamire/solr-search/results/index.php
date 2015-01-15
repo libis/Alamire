@@ -84,71 +84,99 @@
 <div id="solr-results">
 
   <?php foreach ($results->response->docs as $doc): ?>
-    <?php $item = get_record_by_id('item',preg_replace ( '/[^0-9]/', '', $doc->__get('id')));?>                                         
-    <?php  set_current_record('item',$item); ?>         
-    <!-- Document. -->
-    <div class="result item hentry">
-      <?php if (metadata('item', 'has thumbnail')): ?>
-    <div class="item-img">
-        <?php echo link_to_item(item_image('thumbnail')); ?>
-    </div>
-    <?php endif; ?>  
-    <?php if(digitool_item_has_digitool_url($item)): ?>
+    <?php if($doc->resulttype == 'Item'):?>
+        <?php $item = get_record_by_id('item',preg_replace ( '/[^0-9]/', '', $doc->__get('id')));?>                                         
+        <?php  set_current_record('item',$item); ?>         
+        <!-- Document. -->
+        <div class="result item hentry">
+          <?php if (metadata('item', 'has thumbnail')): ?>
         <div class="item-img">
-            <?php echo link_to_item(digitool_get_thumb_for_browse($item));?>            
+            <?php echo link_to_item(item_image('thumbnail')); ?>
         </div>
-    <?php endif; ?>
-      <!-- Header. -->
-      <div class="result-header">
+        <?php endif; ?>  
+        <?php if(digitool_item_has_digitool_url($item)): ?>
+            <div class="item-img">
+                <?php echo link_to_item(digitool_get_thumb_for_browse($item));?>            
+            </div>
+        <?php endif; ?>
+          <!-- Header. -->
+          <div class="result-header">
 
-        <!-- Record URL. -->
-        <?php $url = SolrSearch_Helpers_View::getDocumentUrl($doc); ?>
+            <!-- Record URL. -->
+            <?php $url = SolrSearch_Helpers_View::getDocumentUrl($doc); ?>
 
-        <!-- Title. -->
-        <h2><a href="<?php echo $url; ?>" class="result-title">
-            <?php
-                $title = is_array($doc->title) ? $doc->title[0] : $doc->title;
-                if (empty($title)) {
-                    $title = '<i>' . __('Untitled') . '</i>';
-                }
-                echo $title;
-            ?>
-        </a></h2>
-   
-        <!--<span class="result-type">(<?php echo $doc->resulttype; ?>)</span>-->
-        
-        
+            <!-- Title. -->
+            <h2><a href="<?php echo $url; ?>" class="result-title">
+                <?php
+                    $title = is_array($doc->title) ? $doc->title[0] : $doc->title;
+                    if (empty($title)) {
+                        $title = '<i>' . __('Untitled') . '</i>';
+                    }
+                    echo $title;
+                ?>
+            </a></h2>
 
-      </div>
+            <!--<span class="result-type">(<?php echo $doc->resulttype; ?>)</span>-->
 
-      <!-- Highlighting. -->
-      <?php if (get_option('solr_search_hl')): ?>
-        <ul class="hl">
-          <?php foreach($results->highlighting->{$doc->id} as $field): ?>
-            <?php foreach($field as $hl): ?>
-              <li class="snippet"><?php echo strip_tags($hl, '<em>'); ?></li>
-            <?php endforeach; ?>
-          <?php endforeach; ?>
-        </ul>
-      <?php endif; ?>
-      
-    <div class="item-meta">
-    
 
-    <?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
-    <div class="item-description">
-        <?php echo $description; ?>
-    </div>
-    <?php endif; ?>
 
-    <?php if (metadata('item', 'has tags')): ?>
-    <div class="tags"><p><strong><?php echo __('Tags'); ?>:</strong>
-        <?php echo tag_string('items'); ?></p>
-    </div>
-    <?php endif; ?>
+          </div>
 
-    </div>
-    </div>
+          <!-- Highlighting. -->
+          <?php if (get_option('solr_search_hl')): ?>
+            <ul class="hl">
+              <?php foreach($results->highlighting->{$doc->id} as $field): ?>
+                <?php foreach($field as $hl): ?>
+                  <li class="snippet"><?php echo strip_tags($hl, '<em>'); ?></li>
+                <?php endforeach; ?>
+              <?php endforeach; ?>
+            </ul>
+          <?php endif; ?>
+
+        <div class="item-meta">
+
+
+        <?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
+        <div class="item-description">
+            <?php echo $description; ?>
+        </div>
+        <?php endif; ?>
+
+        <table class="show-table browse-table">    
+        <?php if ($holding = metadata('item', array('Item Type Metadata', 'Holding institution'))): ?>    
+            <tr><td>
+                Holding institution
+            </td><td>      
+            <?php echo $holding; ?>
+            </td></tr>
+
+        <?php endif; ?>   
+
+        <?php if ($shelfmark = metadata('item', array('Item Type Metadata', 'Shelfmark'))): ?>
+        <tr><td>
+            Shelfmark    
+        </td><td> 
+            <?php echo $shelfmark; ?>
+        </td></tr>
+        <?php endif; ?>   
+
+        <?php if ($content = metadata('item', array('Item Type Metadata', 'Content'))): ?>
+        <tr><td>
+            Content    
+        </td><td> 
+            <?php echo $content; ?>
+        </td></tr>
+        <?php endif; ?>       
+         </table>    
+        <?php if (metadata('item', 'has tags')): ?>
+        <div class="tags"><p><strong><?php echo __('Tags'); ?>:</strong>
+            <?php echo tag_string('items'); ?></p>
+        </div>
+        <?php endif; ?>
+
+        </div>
+        </div>
+  <?php endif;?>      
   <?php endforeach; ?>
 
 </div>

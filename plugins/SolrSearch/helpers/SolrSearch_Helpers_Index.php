@@ -248,12 +248,14 @@ class SolrSearch_Helpers_Index
             $solr->commit();
         }
 
+        //Hack: enkel items indexen, Joris
         // Now the other addon stuff.
-        $mgr  = new SolrSearch_Addon_Manager($db);
+        /*$mgr  = new SolrSearch_Addon_Manager($db);
         $docs = $mgr->reindexAddons();
         $solr->addDocuments($docs);
-        $solr->commit();
-
+        $solr->commit();*/
+        //einde hack
+        
         $solr->optimize();
 
     }

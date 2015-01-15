@@ -1284,6 +1284,16 @@ ul.title-list {
     border:none;
 }
 
+.browse-table td{
+    padding:0 0 5px 0;
+    border:none;
+}
+
+.browse-table tr td:first-child{
+    font-style: italic;
+    border:none;
+}
+
 .items.show .element-text {
     
 }
@@ -1713,6 +1723,14 @@ ul.title-list {
 .browse .exhibit .image img {
   height: 100%;
   width: auto;
+}
+
+#solr-results h2{
+    font-size:14px;
+    margin: 0 0 1.5em;
+}
+.result .item-description{
+    margin-bottom:5px;
 }
 
 .collection-meta {
