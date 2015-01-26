@@ -12,7 +12,7 @@
             <a href="<?php echo record_url($item);?>"><img src="<?php echo digitool_get_thumb_url($item);?>"></a>
 
             <div class="slide-title slide-text">                    
-                <a href="<?php echo record_url($item);?>"><?php echo metadata($item,array('Item Type Metadata','Bibliographical orientation')); ?>
+                <a href="<?php echo record_url($item);?>"><?php echo '<b>'.metadata($item,array('Item Type Metadata','Manuscript label')).'</b>, '.metadata($item,array('Item Type Metadata','Holding institution')); ?>
                </a>
             </div>              
 
