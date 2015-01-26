@@ -43,9 +43,9 @@ function libis_side_gallery($item,$size=500){
 	return $html;
 }
 
-function libis_get_news($count = 3)
+function libis_get_featured($count = 3)
 {
-    $items = get_records('Item',array('type'=>'Manuscript','featured'=>true));
+    $items = get_records('Item',array('featured'=>true));
     if ($items) {
         $html = '';
         foreach ($items as $item) {

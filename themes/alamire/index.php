@@ -51,7 +51,7 @@
     ?>
     <div id="recent-items">
         <h2>Spotlight</h2>
-        <?php echo libis_get_news(); ?>
+        <?php echo libis_get_featured(); ?>
         <p class="view-items-link">&raquo; <a href="<?php echo html_escape(url('/solr-search?q=')); ?>">See more</a></p>
     </div><!--end recent-items -->
     <?php endif; ?>
