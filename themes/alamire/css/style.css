@@ -431,7 +431,6 @@ h4, h5 {
 
 h4 {
   font-weight:300;
-  text-decoration:underline;  
   color:#cc6633;
   font-size:14px;
   margin:0;
@@ -875,6 +874,10 @@ input[type=text],textarea {
   width: 50px;
   margin-right: 5px;
   display: inline-block;
+}
+
+#simple-pages-breadcrumbs{
+    font-size:12px;
 }
 
 /* @end */
