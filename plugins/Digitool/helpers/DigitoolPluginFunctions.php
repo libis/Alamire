@@ -6,6 +6,39 @@
 * @copyright 2014 Libis.be
 */
 
+function digitool_get_digitool_urls($item){
+    $digis = get_db()->getTable('DigitoolUrl')->findDigitoolUrlByItem($item,false);   
+    return $digis;
+}
+
+function rosetta_get_thumb($pid){
+    return get_option('digitool_resolver')."/".$pid->pid;        
+}
+    
+function rosetta_get_representation($pid){
+    return get_option('digitool_resolver')."/".$pid->pid."/representation";        
+}
+    
+function rosetta_get_high($pid){
+    return get_option('digitool_resolver').$pid->pid."/stream?quality=HIGH";        
+}
+    
+function rosetta_image($item,$size='thumbnail'){
+    switch($size):
+        case 'thumbnail':
+            return '<img src="'.rosetta_get_thumb($item).'">';
+            break;
+        case 'high':
+            return '<img src="'.rosetta_get_high($item).'">';
+            break;
+    endswitch;
+}
+
+function rosetta_get_pids($item){
+    $pids = get_db()->getTable('DigitoolUrl')->findDigitoolUrlByItem($item,false);   
+    return $pids;
+}
+
 /**
  * 
  * @param type $item
@@ -118,11 +151,6 @@ function digitool_admin_form($item){
 	return $ht;
 }
 
-function digitool_get_digitool_urls($item){
-    $digis = get_db()->getTable('DigitoolUrl')->findDigitoolUrlByItem($item,false);   
-    return $digis;
-}
-
 /**
 * Shows an item's digitool url thumbnails in the right bar of admin/items/show
 * @param Item $item
@@ -170,7 +198,7 @@ function digitool_get_thumb_url($item){
 * @param Item $item, boolean $fiondOnlyOne, int $width,int $height
 * @return html of the thumbnails
 **/
-function digitool_get_thumb($item,$findOnlyOne = false,$linkToView = false,$width="",$class="",$alt=""){
+function digitool_get_thumb($item,$findOnlyOne = false){
 
     $html="";
     

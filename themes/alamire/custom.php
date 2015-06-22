@@ -24,13 +24,13 @@ function libis_side_gallery($item,$size=500){
 
 	$i=0;
 	
-        $digis = digitool_get_digitool_urls($item);    
+        $pids = rosetta_get_pids($item); 
         
-	if(sizeof($digis)>0){
+	if(sizeof($pids)>0){
 		$html ="<div id='side-gallery'>";
-		foreach($digis as $digi){
-			$thumb =  $digi->get_thumb();
-                        $link =  $digi->get_view();
+		foreach($pids as $pid){
+			$thumb =  $pid->get_thumb();
+                        $link =  $pid->get_representation();
                        
                         $html.= "<a href='".$link."' rel='".$thumb."'><img src='".$thumb."' class='thumb' border='0'/></a>";
                         
@@ -43,13 +43,54 @@ function libis_side_gallery($item,$size=500){
 	return $html;
 }
 
-function libis_get_featured($count = 3)
+/*
+ * Creates a simple gallery view for the items/show page
+ * */
+function libis_get_image_link($item){
+
+	$i=0;
+	
+        $pids = rosetta_get_pids($item); 
+                
+	if(sizeof($pids)>0){
+            $i=1;
+            foreach($pids as $pid){
+                    $link =  $pid->get_representation();
+                    if(sizeof($pids) == 1):
+                        return "<a href='".$link."'>image</a>";                        
+                    endif;
+
+
+                    if($i==1):
+                        $html= "<a href='".$link."'>images 1</a>";                        
+                    else:
+                        $html.= " | <a href='".$link."'>".$i."</a>";                        
+                    endif;
+
+
+                    $i++;
+            }
+
+            
+	}
+	
+	return $html;
+}
+
+
+
+function libis_get_featured($count = 1)
 {
-    $items = get_records('Item',array('featured'=>true));
+    $items = get_records('Item',array('featured'=>true),$count);
     if ($items) {
         $html = '';
         foreach ($items as $item) {
             $html .= get_view()->partial('items/single.php', array('item' => $item));
+            $digis = digitool_get_digitool_urls($item);
+            if(sizeof($digis)>0){
+                $thumb =  $digis[0]->get_thumb();                      
+                $html.= "<a href='".url($item)."' rel='".$thumb."'><img src='".$thumb."' class='thumb' border='0'/></a>";
+            }
             release_object($item);
         }
     } else {

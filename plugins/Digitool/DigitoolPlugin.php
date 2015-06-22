@@ -46,8 +46,7 @@ class DigitoolPlugin extends Omeka_Plugin_AbstractPlugin
 
         set_option('digitool_proxy','');
         set_option('digitool_cgi','');
-        set_option('digitool_thumb','');
-        set_option('digitool_view','');
+        set_option('digitool_resolver','');
     }
 
     /**
@@ -60,8 +59,7 @@ class DigitoolPlugin extends Omeka_Plugin_AbstractPlugin
 
         delete_option('digitool_proxy');
         delete_option('digitool_cgi');
-        delete_option('digitool_thumb');
-        delete_option('digitool_view');
+        delete_option('ddigitool_resolver');
     }
     //link to config_form.php
     public function hookConfigForm() {        
@@ -74,9 +72,7 @@ class DigitoolPlugin extends Omeka_Plugin_AbstractPlugin
 
         set_option('digitool_cgi',$_POST['cgi']);
 
-        set_option('digitool_thumb',$_POST['thumb']);
-
-        set_option('digitool_view',$_POST['view']);
+        set_option('digitool_resolver',$_POST['resolver']);
     }
 
     /**

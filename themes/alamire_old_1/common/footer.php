@@ -2,38 +2,26 @@
 
 <footer>
 
-        <div id="contact-info">
-            <p>Alamire Foundation<br>
-            Research Group Musicology KU Leuven
-            </p>
-            CENTRALE BIBLIOTHEEK<br>
-            MGR. LADEUZEPLEIN 21<br>
-            PB 5591 - BE-3000 LEUVEN<br>
-            TEL +32 16 32 87 50<br>
-            info@alamirefoundation.be<br>
-            <a href="http://www.alamirefoundation.org">www.alamirefoundation.org</a>
-            <p>
-            HOUSE OF POLYPHONY<br>
-            ABDIJ VAN PARK 1<br>
-            BE-3001 LEUVEN<br>
-            TEL +32 16 38 92 85
-            </p>
-        </div>   
-        
+    <div id="footer-content" class="center-div">
         <?php echo libis_get_simple_page_content('Partners');?>
         
-        
+        <?php if($footerText = get_theme_option('Footer Text')): ?>
+        <div id="custom-footer-text">
+            <p><?php echo get_theme_option('Footer Text'); ?></p>
+        </div>
+        <?php endif; ?>
         <?php if ((get_theme_option('Display Footer Copyright') == 1) && $copyright = option('copyright')): ?>
         <p><?php echo $copyright; ?></p>
         <?php endif; ?>
         <!--<nav><?php echo public_nav_main()->setMaxDepth(0); ?></nav>-->
         
 
+    </div><!-- end footer-content -->
 
      <?php fire_plugin_hook('public_footer', array('view'=>$this)); ?>
 
 </footer>
-</div>
+
 <script type="text/javascript">
     jQuery(document).ready(function(){
         Omeka.showAdvancedForm();

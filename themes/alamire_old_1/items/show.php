@@ -1,31 +1,14 @@
 <?php echo head(array('title' => metadata('item', array('Item Type Metadata','Manuscript label')),'bodyclass' => 'items show')); ?>
 <div id="primary">
-   
-    <div id="primary-nav">
-        <?php
-            echo public_nav_main();
-        ?>
-    </div>
     
     <?php 
         $item = get_current_record('Item');
         echo libis_get_image($item);?>
-
-</div><!-- end primary -->
-<div id="secondary">
-    
-    
     <!-- Items metadata -->
-    <div id="item-metadata">   
+    <div id="item-metadata">        
+        <h2><?php echo metadata('item', array('Item Type Metadata','Manuscript label')); ?></h2>
         <table class="show-table">
             <tr><td>    
-                <h3>Manuscript label</h3>
-            </td><td>    
-        <div class="element-text">
-            <?php echo metadata('item', array('Item Type Metadata','Manuscript label')); ?>
-        </div>
-            </td></tr>
-             <tr><td>    
                 <h3>Holding institution</h3>
             </td><td>    
         <div class="element-text">
@@ -158,14 +141,13 @@
                   </td></tr>
          <?php endif;?>
         </table> 
+         &raquo;<span class="view-manuscript"> <a href=''>View manuscript</a></span>
 
          <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
          
          <ul class="item-pagination navigation">
-         <li id="previous-item" class="previous"><?php echo link_to_previous_item_show('previous result'); ?></li>
-         <li id="next-item" class="next"><?php echo link_to_next_item_show('next result'); ?></li>
-         <li><?php echo libis_get_image_link($item);?></li>
-         <li><a href="">collective access</a></li>
+         <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>
+         <li id="next-item" class="next"><?php echo link_to_next_item_show(); ?></li>
          </ul>
     </div>
 

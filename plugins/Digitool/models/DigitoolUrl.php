@@ -33,11 +33,15 @@ class DigitoolUrl extends Omeka_Record_AbstractRecord implements Zend_Acl_Resour
     }
     
     public function get_thumb(){
-        return get_option('digitool_thumb').$this->pid;        
+        return get_option('digitool_resolver')."/".$this->pid;        
+    }
+    
+    public function get_representation(){
+        return get_option('digitool_resolver')."/".$this->pid."/representation";        
     }
     
     public function get_view(){
-        return get_option('digitool_view').$this->pid;        
+        return get_option('digitool_resolver').$this->pid."/stream?quality=HIGH";        
     }
     
     /**

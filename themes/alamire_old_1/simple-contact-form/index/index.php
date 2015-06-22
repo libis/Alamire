@@ -1,15 +1,6 @@
 <?php echo head(); ?>
 <div id="primary">
-   
-    <div id="primary-nav">
-        <?php
-            echo public_nav_main();
-        ?>
-    </div>
-    
-</div><!-- end primary -->
-<div id="secondary">
-    <h4><?php echo html_escape(get_option('simple_contact_form_contact_page_title')); ?></h4>
+    <h2><?php echo html_escape(get_option('simple_contact_form_contact_page_title')); ?></h2>
 <div id="simple-contact">
     <div id="form-instructions">
         <?php echo get_option('simple_contact_form_contact_page_instructions'); // HTML ?>
@@ -19,20 +10,23 @@
 
         <fieldset>
         <div class="field">
+        <?php echo $this->formLabel('name', 'Your Name: '); ?>
             <div class='inputs'>
-            <?php echo $this->formText('name', $name, array('class'=>'textinput','placeholder'=>'your name')); ?>
+            <?php echo $this->formText('name', $name, array('class'=>'textinput')); ?>
             </div>
         </div>
         
-        <div class="field">           
+        <div class="field">
+            <?php echo $this->formLabel('email', 'Your Email: '); ?>
             <div class='inputs'>
-                <?php echo $this->formText('email', $email, array('class'=>'textinput','placeholder'=>'your email'));  ?>
+                <?php echo $this->formText('email', $email, array('class'=>'textinput'));  ?>
             </div>
         </div>        
         
         <div class="field">
+          <?php echo $this->formLabel('message', 'Your Message: '); ?>
           <div class='inputs'>
-          <?php echo $this->formTextarea('message', $message, array('class'=>'textinput', 'rows' => '10','placeholder'=>'your message')); ?>
+          <?php echo $this->formTextarea('message', $message, array('class'=>'textinput', 'rows' => '10')); ?>
           </div>
         </div>
         

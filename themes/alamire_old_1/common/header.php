@@ -35,27 +35,54 @@
     <?php echo head_js(); ?>
 </head>
  <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
-
     <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
-    <div id="container">
         <header>
             <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>
             <div id="header-left">
                 <div id="site-title">
-                    
-                    <div class="alamire-title">
-                        <img src="<?php echo img("logo.jpg"); ?>">
-                        Alamire <br>Foundation</div>              
+                    <img src="<?php echo img("logo.jpg"); ?>">
+                    <div class="alamire-title">Alamire Foundation</div>              
                 </div>
                 
-                 <div id="site-title-text">
+                 <div id="primary-nav">
+                
+               
+             <?php
+                  echo public_nav_main();
+             ?>
+            </div>
+          </div>
+                <div id="site-title-text">
                     <a href="<?php echo url("/");?>">IDEM</a>
                       <?php if ($description = option('description')): ?>
                       <div id="description"><?php echo $description; ?></div>
                    <?php endif; ?>
                 </div> 
-                 
-          </div>
+          
+            
+
+           
+            
+            <div id="search-container">
+                <?php if (get_theme_option('use_advanced_search') === null || get_theme_option('use_advanced_search')): ?>
+                <?php echo search_form(array('show_advanced' => true)); ?>
+                <?php else: ?>
+                <?php echo search_form(); ?>
+                <?php endif; ?>
+            </div>
+            
+            <script>
+                jQuery(document).ready(function(){                    
+                    var val = '<?php echo array_key_exists('q', $_GET) ? $_GET['q'] : '';?>';
+                    jQuery('#query').attr('placeholder','Search the collection...');
+                    if(val!=''){                     
+                        jQuery('#query').val(val);
+                    }
+      
+                });
+            </script>
+            
+            
         </header>
 
          
