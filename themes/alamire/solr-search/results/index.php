@@ -30,7 +30,7 @@
 
           <!-- Facet label. -->
           <?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
-          <h3><?php echo $label; ?></h3>
+          <h3 class="clicker"><?php echo $label; ?></h3>
 
           <ul>
             <!-- Facets. -->
@@ -137,4 +137,18 @@
 
     <?php echo pagination_links(); ?>
 </div>    
+
+<script>
+jQuery(document).ready(function() {
+
+  jQuery('.clicker').click(function() {
+    jQuery(this).toggleClass('active-clicker');
+    jQuery(this).next().toggle();
+    return false;
+  }).next().hide();
+
+});
+</script>
 <?php echo foot();
+
+

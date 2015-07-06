@@ -537,7 +537,8 @@ ul {
     color:#444;
     font-size:11px;
     text-transform: uppercase;    
-    margin:0 0 0 0;
+    margin-top:0;
+    margin-bottom:0;
     padding:0 0 0.5em 0;
 }
 
@@ -562,4 +563,22 @@ ul {
     padding-bottom:1.5em;
     font-size:12px;
     font-style: italic;
+}
+
+.clicker{
+    cursor:pointer;  
+}
+
+.clicker:after{
+    
+    margin-top:-4px;
+    text-align:right;content:"+";
+    border-top:4px solid transparent;
+    border-left:4px solid transparent;
+    border-bottom:4px solid transparent;
+    display:inline-block
+}
+
+.active-clicker:after{
+    content:"-";
 }
