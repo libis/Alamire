@@ -4,8 +4,8 @@
     $dc_description = metadata($item, array('Dublin Core', 'Description'), array('snippet' => 150));
     ?>
     <p class="item-description">
-    <?php link_to($item, 'show', strip_formatting($title)); ?> -
-   
+    <?php echo link_to($item, 'show', strip_formatting($title)); ?> - 
+        <br>
     <?php if ($dc_description): ?>
         <?php echo $dc_description; ?></p>
     <?php endif; ?>
