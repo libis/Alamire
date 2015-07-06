@@ -57,10 +57,26 @@
         </td></tr>
         
         <tr><td>
+        <h3>Category</h3>
+        </td><td> 
+        <div class="element-text">
+            <?php echo metadata('item', array('Item Type Metadata','Category')); ?>
+        </div>
+        </td></tr>
+        
+        <tr><td>
         <h3>Content</h3>
         </td><td> 
         <div class="element-text">
             <?php echo metadata('item', array('Item Type Metadata','Content')); ?>
+        </div>
+        </td></tr>
+        
+        <tr><td>
+        <h3>Authors / composers</h3>
+         </td><td> 
+        <div class="element-text">
+            <?php echo metadata('item', array('Item Type Metadata','Authors / composers')); ?>
         </div>
         </td></tr>
         
@@ -73,26 +89,26 @@
         </td></tr>
         
         <tr><td>
-        <h3>Origin (general)</h3>
+        <h3>Origin (country / region)</h3>
         </td><td> 
         <div class="element-text">
-            <?php echo metadata('item', array('Item Type Metadata','Origin (general)')); ?>
+            <?php echo metadata('item', array('Item Type Metadata','Origin (country / region)')); ?>
         </div>
         </td></tr>
         
         <tr><td>
-        <h3>Origin (specified)</h3>
+        <h3>Origin (city / location)</h3>
         </td><td> 
         <div class="element-text">
-            <?php echo metadata('item', array('Item Type Metadata','Origin (specified)')); ?>
+            <?php echo metadata('item', array('Item Type Metadata','Origin (city / location)')); ?>
         </div>
         </td></tr>
         
         <tr><td>
-        <h3>Date / Period</h3>
+        <h3>Date range</h3>
          </td><td> 
         <div class="element-text">
-            <?php echo metadata('item', array('Item Type Metadata','Date / Period')); ?>
+            <?php echo metadata('item', array('Item Type Metadata','Date range')); ?>
         </div>
         </td></tr>
         
