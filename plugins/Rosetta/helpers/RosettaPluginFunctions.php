@@ -37,21 +37,23 @@ function rosetta_admin_form($item){
     ob_start();
     echo queue_js_file("jquery.pagination");
     ?><link rel="stylesheet" href="<?php echo queue_css_file('pagination'); ?>" />
-    <?php
-    if(rosetta_item_has_rosetta_object($item)){
-    ?>
+    <?php if(rosetta_item_has_rosetta_object($item)):?>
     <div>
     <b>Digitool images currently associated with this item:</b>
-    <br><?php echo rosetta_get_thumb_admin($item,true);?>    
-    
+    <br>
+    <?php 
+        $objects = rosetta_get_rosetta_objects($item);
+        foreach($objects as $object):?>
+            <li><a href="/admin/digitool/index/<?php echo $object->id;?>"><img src="<?php echo $object->get_thumb();?>" width="100" /></a><br>
+        <?php endforeach;?>    
     </div>
     <br><br>
-    <?php }?>
+    <?php endif;?>
 
     <label>Search rosetta (case sensitive)</label>
 	<br>
     <input name='fileUrl' id='fileUrl' type='text' class='fileinput' />
-    <button style="float:none;" class="digi-search">Search</button>
+    <button style="float:none;" class="rosetta-search">Search</button>
     <br><br>
     <div id="wait" style="display:none;">Please wait, this might take a few seconds.</div>
 
@@ -63,19 +65,19 @@ function rosetta_admin_form($item){
 
     <!-- Container element for all the Elements that are to be paginated -->
     <div id="hiddenresult" style="display:none;">
-     <div class="result">TEST</div>
+        <div class="result">TEST</div>
     </div>
 
 
 	<script>
-	( function($) {
-		jQuery('.digi-search').click(function(event) {
+	jQuery( document ).ready(function() {
+		jQuery('.rosetta-search').click(function(event) {
 			event.preventDefault();
 			jQuery('#Searchresult').hide('slow');
 			jQuery('#Pagination').hide('slow');
 			jQuery('#wait').show('slow');
 
-			jQuery.get('<?php echo object("rosetta/index/cgi/");?>',{ search: jQuery('#fileUrl').val()} , function(data) {
+			jQuery.get('<?php echo url("rosetta/index/cgi/");?>',{ search: jQuery('#fileUrl').val()} , function(data) {
 				jQuery('#wait').hide('slow');
 				jQuery('#hiddenresult').html(data);
 				initPagination();
@@ -86,22 +88,19 @@ function rosetta_admin_form($item){
 
 		});
 
-		jQuery('.digi-child').live("click", function(event) {
+		jQuery('.digi-child').click(function(event) {
 			event.preventDefault();
 			jQuery('#wait').show('slow');
-			jQuery.get('<?php echo object("rosetta/index/childcgi/");?>',{ child: jQuery('.digi-child').val()} , function(data) {
+			jQuery.get('<?php echo url("rosetta/index/childcgi/");?>',{ child: jQuery('.digi-child').val()} , function(data) {
 				jQuery('#wait').hide('slow');
 				jQuery('.result-child').html(data);
 			});
 
 		});
 
-		// This demo shows how to paginate elements that were loaded via AJAX
-		// It's very similar to the static demo.
-
 		/**
-		 * Callback function that displays the content.
-		  *
+		* Callback function that displays the content.
+		*
 		* Gets called every time the user clicks on a pagination link.
 		*
 		* @param {int}page_index New Page index
@@ -126,11 +125,7 @@ function rosetta_admin_form($item){
 			                    items_per_page:4
 			});
 		}
-
-	} ) ( jQuery );
-		// Load HTML snippet with AJAX and insert it into the Hiddenresult element
-		// When the HTML has loaded, call initPagination to paginate the elements
-
+                });
 	</script>
 
 	<?php
@@ -161,7 +156,7 @@ function rosetta_item_has_rosetta_object($item = null){
  * 
  * @param type $item
  * @param type $pid
- * @return boolean
+ * @return items or boolean
  */
 function rosetta_find_items_with_same_pid($item=null,$pid=null){
     
@@ -188,7 +183,7 @@ function rosetta_find_items_with_same_pid($item=null,$pid=null){
             }
 	}
 
-	//if all fails
+	//if everything fails
 	return false;
 }
 
@@ -240,22 +235,7 @@ function rosetta_resize_dimensions($goal_width,$goal_height,$imageobject) {
     else if ($height > $goal_height) {
         $return['width'] = $goal_height/$height * $width;
         $return['height'] = $goal_height;        
-    }
-    
-    
-}
-
-
-/**
-* Loads extra javascript needed in admin section
-*
-* @param bool $pageLoaded Whether or not the page is already loaded.
-* If this function is used with AJAX, this parameter may need to be set to true.
-* @return string
-*/
-function rosetta_scripts(){       
-    queue_js_file('jquery.pagination');
-    head_js();       
+    }    
 }
 
 /**
@@ -288,8 +268,8 @@ function rosetta_resize($pid,$opts=null){
 
 	$imagePath = objectdecode($view_object.$pid."&custom_att_3=stream");
 	# start configuration
-	$cacheFolder = "/".ARCHIVE_DIR.'/files/'; # path to your cache folder, must be writeable by web server
-        $remoteFolder = "/".ARCHIVE_DIR.'/files/'; # path to the folder you wish to download remote images into
+	$cacheFolder = "/".FILES_DIR.'/'; # path to your cache folder, must be writeable by web server
+        $remoteFolder = "/".FILES_DIR.'/'; # path to the folder you wish to download remote images into
 
 	$defaults = array('crop' => false, 'scale' => 'false', 'thumbnail' => false, 'maxOnly' => false,
 			'canvas-color' => 'transparent', 'output-filename' => false,

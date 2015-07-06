@@ -6,23 +6,19 @@
 * @copyright 2014 Libis.be
 */
 
-require_once 'Omeka/Controller/Action.php';
+//require_once 'Omeka/Controller/Action.php';
 
 class Rosetta_IndexController extends Omeka_Controller_AbstractActionController
 {
 	public function init() 
         {
-            $this->_modelClass = 'RosettaObject';
-            try {
-                $this->_table = $this->getTable('RosettaObject');
-                $this->aclResource = $this->findById();
-            } catch (Omeka_Controller_Exception_404 $e){}
+            
         }
     
         public function indexAction()
 	{
-            $digi = $this->findById();
-            $this->view->digi = $digi;
+            $object = $this->findById();
+            $this->view->object = $object;
             //todo -> transcriptie metadata
 	}
 	public function cgiAction()

@@ -8,7 +8,6 @@
 define('ROSETTA_DIR', dirname(__FILE__));
 
 //HELPERS
-require_once ROSETTA_DIR.'/helpers/CurlHelper.php';
 require_once ROSETTA_DIR.'/helpers/RosettaPluginFunctions.php';
 
 class RosettaPlugin extends Omeka_Plugin_AbstractPlugin
@@ -21,7 +20,8 @@ class RosettaPlugin extends Omeka_Plugin_AbstractPlugin
         'config_form',
         'config',        
         'after_save_item',
-        'define_acl'
+        'define_acl',
+        'admin_head'
     );
 
     protected $_filters = array(
@@ -152,6 +152,12 @@ class RosettaPlugin extends Omeka_Plugin_AbstractPlugin
         
         return $html;
     }
+    
+    public function hookAdminHead($args)
+    {
+        $view = $args['view'];
+        queue_js_file('jquery.pagination');       
+    }
 
     /**
     * Add a tab to the edit item page
@@ -159,7 +165,8 @@ class RosettaPlugin extends Omeka_Plugin_AbstractPlugin
     **/
     public function filterAdminItemsFormTabs($tabs,$args){
         $item = $args['item'];
-        $tabs['Rosetta'] = rosetta_admin_form($item);       
+        $tabs['Rosetta'] = rosetta_admin_form($item);     
+        
         return $tabs;
     }
 
