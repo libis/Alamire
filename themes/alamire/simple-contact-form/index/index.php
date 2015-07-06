@@ -26,7 +26,7 @@
         
         <div class="field">           
             <div class='inputs'>
-                <?php echo $this->formText('email', $email, array('class'=>'textinput','placeholder'=>'e-mail'));  ?>
+                <?php echo $this->formText('email', $email, array('class'=>'textinput','placeholder'=>'email'));  ?>
             </div>
         </div> 
             
