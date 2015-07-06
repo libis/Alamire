@@ -16,6 +16,7 @@ class SimpleContactForm_IndexController extends Omeka_Controller_AbstractActionC
     {
         $name = isset($_POST['name']) ? $_POST['name'] : '';
         $email = isset($_POST['email']) ? $_POST['email'] : '';;
+        $institution = isset($_POST['institution']) ? $_POST['institution'] : '';;
         $message = isset($_POST['message']) ? $_POST['message'] : '';;        
         $newsletter = isset($_POST['account']) ? $_POST['account'] : '';;
         $newsletter = isset($_POST['newsletter']) ? $_POST['newsletter'] : '';;
@@ -25,7 +26,7 @@ class SimpleContactForm_IndexController extends Omeka_Controller_AbstractActionC
         if ($this->getRequest()->isPost()) {
             // If the form submission is valid, then send out the email
             if ($this->_validateFormSubmission($captchaObj)) {
-            $this->sendEmailNotification($_POST['email'], $_POST['name'], $_POST['message'],$_POST['account'],$_POST['newsletter']);
+            $this->sendEmailNotification($_POST['email'], $_POST['name'],$_POST['institution'], $_POST['message'],$_POST['account'],$_POST['newsletter']);
                 $url = WEB_ROOT."/".SIMPLE_CONTACT_FORM_PAGE_PATH."thankyou";
                     $this->_helper->redirector->goToUrl($url);
             }
@@ -39,7 +40,7 @@ class SimpleContactForm_IndexController extends Omeka_Controller_AbstractActionC
             $captcha = '';
         }
 
-        $this->view->assign(compact('name','email','message','account','newsletter','captcha'));
+        $this->view->assign(compact('name','email','institution','message','account','newsletter','captcha'));
     }
 
     public function thankyouAction()
@@ -71,7 +72,7 @@ class SimpleContactForm_IndexController extends Omeka_Controller_AbstractActionC
         return Omeka_Captcha::getCaptcha();
     }
 
-    protected function sendEmailNotification($formEmail, $formName, $formMessage,$formAccount,$formNewsletter) 
+    protected function sendEmailNotification($formEmail, $formName,$formInstitution, $formMessage,$formAccount,$formNewsletter) 
     {
         //notify the admin
         //use the admin email specified in the plugin configuration.
@@ -79,9 +80,11 @@ class SimpleContactForm_IndexController extends Omeka_Controller_AbstractActionC
         if (!empty($forwardToEmail)) {
             $mail = new Zend_Mail('UTF-8');
             $mail->setBodyText(get_option('simple_contact_form_admin_notification_email_message_header')
+                    . "\n\n" . $formName ." just sent the following message:"
                     . "\n\n" . $formMessage                    
                     . "\n\n" . "Whishes to receive an IDEM database account: ".$formAccount
                     . "\n\n" . "Whishes to receive the newsletter: ".$formNewsletter
+                    . "\n\n" . "Institution of ".$formName.": ".$formInstitution
                     );
             $mail->setFrom($formEmail, $formName);
             $mail->addTo($forwardToEmail);

@@ -20,28 +20,34 @@
         <fieldset>
         <div class="field">
             <div class='inputs'>
-            <?php echo $this->formText('name', $name, array('class'=>'textinput','placeholder'=>'your name')); ?>
+            <?php echo $this->formText('name', $name, array('class'=>'textinput','placeholder'=>'name')); ?>
             </div>
         </div>
         
         <div class="field">           
             <div class='inputs'>
-                <?php echo $this->formText('email', $email, array('class'=>'textinput','placeholder'=>'your email'));  ?>
+                <?php echo $this->formText('email', $email, array('class'=>'textinput','placeholder'=>'e-mail'));  ?>
             </div>
-        </div>        
+        </div> 
+            
+        <div class="field">           
+            <div class='inputs'>
+                <?php echo $this->formText('institution', $institution, array('class'=>'textinput','placeholder'=>'institution'));  ?>
+            </div>
+        </div>     
         
         <div class="field">
           <div class='inputs'>
-          <?php echo $this->formTextarea('message', $message, array('class'=>'textinput', 'rows' => '10','placeholder'=>'your message')); ?>
+          <?php echo $this->formTextarea('message', $message, array('class'=>'textinput', 'rows' => '10','placeholder'=>'message')); ?>
           </div>
         </div>
         
         <div class="field">
-            <?php echo $this->formLabel('account', 'Do you want to receive an account for the IDEM database?'); ?>
+            <?php echo $this->formLabel('account', 'I request an account for the IDEM database'); ?>
             <?php echo $this->formCheckbox('account','0',array('checked'=>false));  ?>           
         </div>    
         <div class="field">
-            <?php echo $this->formLabel('newsletter', 'Do you want to receive the Alamire newsletter?'); ?>
+            <?php echo $this->formLabel('newsletter', 'I would like to be added to the Alamire Foundation contact list'); ?>
             <?php echo $this->formCheckbox('newsletter','0',array('checked'=>true));  ?>           
         </div>
         
