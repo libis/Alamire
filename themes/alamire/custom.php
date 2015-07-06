@@ -43,36 +43,6 @@ function libis_side_gallery($item,$size=500){
 	return $html;
 }
 
-/*
- * Creates a simple gallery view for the items/show page
- * */
-function libis_get_image_link($item){
-	$i=0;
-	
-        $pids = rosetta_get_rosetta_objects($item); 
-                
-	if(sizeof($pids)>0){
-            $i=1;
-            foreach($pids as $pid){
-                $link =  $pid->get_representation();
-                if(sizeof($pids) == 1):
-                    return "<a href='".$link."'>image</a>";                        
-                endif;
-
-                if($i==1):
-                    $html= "<a href='".$link."'>images 1</a>";                        
-                else:
-                    $html.= " | <a href='".$link."'>".$i."</a>";                        
-                endif;
-
-                $i++;
-            }           
-	}
-	return $html;
-}
-
-
-
 function libis_get_featured($count = 1)
 {
     $items = get_records('Item',array('featured'=>true),$count);

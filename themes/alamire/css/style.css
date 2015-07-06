@@ -1826,6 +1826,11 @@ footer nav + p {
     float:left;
 }
 
+#recaptcha_area input {
+    height: auto !important;
+    display: initial !important;
+}
+
 
 #logos img{
     max-height:40px;
@@ -2235,3 +2240,5 @@ footer nav + p {
 
   /* @end */
 }
+
+
