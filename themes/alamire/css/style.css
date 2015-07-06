@@ -1173,6 +1173,7 @@ ul.title-list {
   margin-right:10px;  
   color: #cc6633;
   font-size: 12px;  
+  white-space:nowrap;
 }
 
 .show-table {
@@ -1183,6 +1184,7 @@ ul.title-list {
 .show-table td{   
     margin:0;
     border:none;
+    vertical-align:top;
 }
 
 .show-table tr td:last-child{
