@@ -1276,18 +1276,8 @@ ul.title-list {
 #side-gallery img{
     overflow:hidden;
     width:100%;
-}
-#side-gallery a{
     margin-bottom:10px;    
     display:block;
-}
-#side-gallery a:last-of-type{
-    margin-bottom:0px;
-}
-
-.view-manuscript{
-    
-    
 }
 
 /* Tags Classes */

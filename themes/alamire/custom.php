@@ -30,9 +30,8 @@ function libis_side_gallery($item,$size=500){
 		$html ="<div id='side-gallery'>";
 		foreach($pids as $pid){
 			$thumb =  $pid->get_thumb();
-                        $link =  $pid->get_representation();
                        
-                        $html.= "<a href='".$link."' rel='".$thumb."'><img src='".$thumb."' class='thumb' border='0'/></a>";
+                        $html.= "<img src='".$thumb."' class='thumb' border='0'/>";
                         
 			$i++;
 		}
