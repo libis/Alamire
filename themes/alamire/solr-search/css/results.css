@@ -480,9 +480,9 @@ ul {
 /* line 49, sass/results.scss */
 #solr-facets {
   float: left;
-  border-bottom: 1px solid #333;
   margin: 0 0 20px;
   padding: 0 0 20px;
+  width:100%;
 }
 
 /* line 54, sass/results.scss */
