@@ -18,7 +18,7 @@ class SimpleContactForm_IndexController extends Omeka_Controller_AbstractActionC
         $email = isset($_POST['email']) ? $_POST['email'] : '';;
         $institution = isset($_POST['institution']) ? $_POST['institution'] : '';;
         $message = isset($_POST['message']) ? $_POST['message'] : '';;        
-        $newsletter = isset($_POST['account']) ? $_POST['account'] : '';;
+        $account = isset($_POST['account']) ? $_POST['account'] : '';;
         $newsletter = isset($_POST['newsletter']) ? $_POST['newsletter'] : '';;
 
         $captchaObj = $this->_setupCaptcha();
