@@ -44,11 +44,11 @@
         
         <div class="field">
             <?php echo $this->formLabel('account', 'I request an account for the IDEM database'); ?>
-            <?php echo $this->formCheckbox('account','0',array('checked'=>false));  ?>           
+            <input type="checkbox" name="account">
         </div>    
         <div class="field">
             <?php echo $this->formLabel('newsletter', 'I would like to be added to the Alamire Foundation contact list'); ?>
-            <?php echo $this->formCheckbox('newsletter','0',array('checked'=>true));  ?>           
+            <input type="checkbox" name="newsletter" checked="true">         
         </div>
         
         </fieldset>
