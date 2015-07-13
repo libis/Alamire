@@ -94,8 +94,8 @@ class SimpleContactForm_IndexController extends Omeka_Controller_AbstractActionC
             $mail->setBodyText(get_option('simple_contact_form_admin_notification_email_message_header')
                     . "\n\n" . $formName ." just sent the following message:"
                     . "\n\n" . $formMessage                    
-                    . "\n\n" . "Whishes to receive an IDEM database account: ".$formAccount
-                    . "\n\n" . "Whishes to receive the newsletter: ".$formNewsletter
+                    . "\n\n" . "Wishes to receive an IDEM database account: ".$formAccount
+                    . "\n\n" . "Wishes to receive the newsletter: ".$formNewsletter
                     . "\n\n" . "Institution of ".$formName.": ".$formInstitution
                     );
             $mail->setFrom($formEmail, $formName);
