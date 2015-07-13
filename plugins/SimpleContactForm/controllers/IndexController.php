@@ -76,6 +76,18 @@ class SimpleContactForm_IndexController extends Omeka_Controller_AbstractActionC
     {
         //notify the admin
         //use the admin email specified in the plugin configuration.
+        
+        if($formAccount == 'on'){
+            $formAccount='Yes';            
+        }else{
+            $formAccount = 'no';
+        }
+        if($formNewsletter == 'on'){
+            $formNewsletter='Yes';            
+        }else{
+            $formNewsletter = 'no';
+        }
+        
         $forwardToEmail = get_option('simple_contact_form_forward_to_email');
         if (!empty($forwardToEmail)) {
             $mail = new Zend_Mail('UTF-8');
