@@ -9,7 +9,7 @@ function libis_get_simple_page_content($title){
 function libis_get_image($item){
     
     if (metadata('item', 'has files')):
-        echo '<div id="side-gallery">'.files_for_item(array("imageSize"=>"thumbnail","linkToFile" => "false")).'</div>';
+        echo '<div id="side-gallery">'.files_for_item(array("imageSize"=>"thumbnail","linkToFile" => false)).'</div>';
     endif;
     if (rosetta_item_has_rosetta_object($item)):            
         echo libis_side_gallery($item,100);            
