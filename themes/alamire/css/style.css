@@ -970,6 +970,10 @@ input[type=text],textarea {
     padding-left: 60px;
 }
 
+#home #third img{
+    width:100%;
+}
+
 #continue {
     color:#333;
     text-decoration: none;

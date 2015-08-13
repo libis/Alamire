@@ -50,7 +50,7 @@ function libis_get_featured($count = 1)
         foreach ($items as $item) {
             $html .= get_view()->partial('items/single.php', array('item' => $item));
             $images = rosetta_get_images($item, 'thumbnail');
-            if($image = item_image('thumbnail', array(),0,$item)):
+            if($image = item_image('fullsize', array(),0,$item)):
                 $html.= "<a href='".  record_url($item)."' rel='".$image."'>".$image."</a>";
             elseif(sizeof($images)>0):
                 $html.= "<a href='".  record_url($item)."' rel='".$images[0]."'><img src='".$images[0]."' class='thumb' border='0'/></a>";
