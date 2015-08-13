@@ -1230,8 +1230,13 @@ ul.title-list {
     overflow:hidden;
 }
 
+#news-description{
+    width:60%;
+}
+
 #side-gallery{    
     float:left;
+    width:100%;
 }
 
 #side-gallery img{
