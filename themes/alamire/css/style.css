@@ -938,7 +938,7 @@ input[type=text],textarea {
  
 }
 #home #secondary {  
-  width: 480px;
+  width: 380px;
 }
 
 
@@ -965,7 +965,7 @@ input[type=text],textarea {
 
 #home #third {
     float:left;
-    width:240px;
+    width:340px;
     margin-right: 0;
     padding-left: 60px;
 }
