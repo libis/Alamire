@@ -1,10 +1,12 @@
 <div class="item record">
     <?php
     $title = metadata($item, array('Dublin Core', 'Title'));
-    $dc_description = metadata($item, array('Dublin Core', 'Description'), array('snippet' => 150));
+    $dc_description = metadata($item, array('Dublin Core', 'Description'), array());
     ?>
     <p class="item-description">
-    <?php echo link_to($item, 'show', strip_formatting($title)); ?> - 
+    <?php strip_formatting($title);
+    //echo link_to($item, 'show', strip_formatting($title)); 
+    ?> 
         <br>
     <?php if ($dc_description): ?>
         <?php echo $dc_description; ?></p>

@@ -28,7 +28,7 @@
     if ($recentItems):
     ?>
     <div id="recent-items">
-        <h5 class="spotlight-header">Spotlight</h5>
+        <h5 class="spotlight-header">In the spotlight</h5>
         <?php echo libis_get_featured(); ?>
     </div><!--end recent-items -->
     <?php endif; ?>

@@ -51,9 +51,11 @@ function libis_get_featured($count = 1)
             $html .= get_view()->partial('items/single.php', array('item' => $item));
             $images = rosetta_get_images($item, 'thumbnail');
             if($image = item_image('fullsize', array(),0,$item)):
-                $html.= "<a href='".  record_url($item)."' rel='".$image."'>".$image."</a>";
+                //$html.= "<a href='".  record_url($item)."' rel='".$image."'>".$image."</a>";
+                $html.=  ".$image.";
             elseif(sizeof($images)>0):
-                $html.= "<a href='".  record_url($item)."' rel='".$images[0]."'><img src='".$images[0]."' class='thumb' border='0'/></a>";
+                //$html.= "<a href='".  record_url($item)."' rel='".$images[0]."'><img src='".$images[0]."' class='thumb' border='0'/></a>";
+                $html.= "<img src='".$images[0]."' class='thumb' border='0'/>";
             endif;
             release_object($item);
         }

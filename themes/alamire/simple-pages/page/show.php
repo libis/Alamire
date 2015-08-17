@@ -13,7 +13,7 @@
     
 </div><!-- end primary -->
 <div id="secondary">
-    <p id="simple-pages-breadcrumbs"><?php echo simple_pages_display_breadcrumbs(); ?></p>
+    <!--<p id="simple-pages-breadcrumbs"><?php //echo simple_pages_display_breadcrumbs(); ?></p>-->
     <h4><?php echo metadata('simple_pages_page', 'title'); ?></h4>
     <?php
     $text = metadata('simple_pages_page', 'text', array('no_escape' => true));
