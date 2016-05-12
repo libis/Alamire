@@ -9,7 +9,8 @@ function libis_get_simple_page_content($title){
 function libis_get_image($item){
     
     if (metadata('item', 'has files')):
-        echo '<div id="side-gallery">'.files_for_item(array("imageSize"=>"thumbnail","linkToFile" => false)).'</div>';
+        $link = metadata($item, array('Item Type Metadata','Viewer link'));    
+        echo '<div id="side-gallery">'.files_for_item(array("imageSize"=>"thumbnail","linkToFile" => true,"linkAttributes"=>array('href'=>$link))).'</div>';
     endif;
     if (rosetta_item_has_rosetta_object($item)):            
         echo libis_side_gallery($item,100);            
@@ -30,8 +31,9 @@ function libis_side_gallery($item,$size=500){
 		$html ="<div id='side-gallery'>";
 		foreach($pids as $pid){
 			$thumb =  $pid->get_thumb();
+                        $link = metadata($item, array('Item Type Metadata','Viewer link'));
                        
-                        $html.= "<img src='".$thumb."' class='thumb' border='0'/>";
+                        $html.= "<a href='".$link."'><img src='".$thumb."' class='thumb' border='0'/></a>";
                         
 			$i++;
 		}
