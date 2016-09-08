@@ -24,10 +24,12 @@
                 <tr><td>    
                     <h3>Manuscript label</h3>
                 </td><td>    
-            <div class="element-text">
+            <div class="element-text" style="width:auto;float:left;">
                 <?php echo metadata('item', array('Item Type Metadata','Manuscript label'),array('delimiter'=>'<br>')); ?>
             </div>
-                </td></tr>
+            <div class="images-link"><a href="<?php echo metadata('item', array('Item Type Metadata','Viewer link')); ?>">view images</a>        
+            </div> 
+            </td></tr>
                  <tr><td>    
                     <h3>Holding institution</h3>
                 </td><td>    

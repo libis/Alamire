@@ -1249,6 +1249,18 @@ ul.title-list {
     display:block;
 }
 
+.images-link{
+    float:right;
+    width:71%; 
+}
+.images-link a{
+    font-family: 'Dosis',sans-serif;
+    text-decoration: none;
+    text-transform:uppercase; 
+    border-bottom:1px solid #cc6633;
+    padding:3px 0;
+}
+
 /* Tags Classes */
 .tags li {
   display: inline;
