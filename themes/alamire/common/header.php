@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="<?php echo get_theme_option('Style Sheet'); ?>" lang="<?php echo get_html_lang(); ?>">
 <head>
-    <link href='http://fonts.googleapis.com/css?family=Dosis:400,500,600,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Dosis:400,500,600,700' rel='stylesheet' type='text/css'>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
     <?php if ($description = option('description')): ?>
@@ -42,32 +42,32 @@
             <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>
             <div id="header-left">
                 <div id="site-title">
-                    
+
                     <div class="alamire-title">
                         <img src="<?php echo img("logo.jpg"); ?>">
-                        Alamire <br>Foundation</div>              
+                        Alamire <br>Foundation</div>
                 </div>
-                
+
                  <div id="site-title-text">
                     <a href="<?php echo url("/");?>">IDEM</a>
                       <?php if ($description = option('description')): ?>
                       <div id="description"><?php echo $description; ?></div>
                    <?php endif; ?>
-                </div> 
-                 
+                </div>
+
           </div>
         </header>
 
-         
-  
+
+
          <div id="mobile-nav">
              <?php
                   echo public_nav_main();
              ?>
          </div>
-        
+
         <?php echo theme_header_image(); ?>
-                       
+
     <div id="content">
 
 <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
