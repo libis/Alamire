@@ -2073,6 +2073,30 @@ footer nav + p {
   padding-left:1.5rem;
 }
 
+.search-all{
+  margin-top: 15px; overflow: auto; height: 300px;
+}
+
+.search-link-wrapper{
+  margin-top: 25px; text-align: center;
+}
+
+.search-link{
+  width: 32%;display: inline-block;
+}
+
+.search-link:first-of-type{
+  margin-right: 1.4%;
+}
+
+.search-link:last-of-type{
+  margin-left: 1.4%;
+}
+
+.search-link h3{
+  margin-top: 0.4rem;
+}
+
 #contact-form input[type="checkbox"], #contact-form input[type="radio"] {
   vertical-align: middle;
 }
