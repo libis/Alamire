@@ -25,7 +25,7 @@ class ShortcodeCitiesPlugin extends Omeka_Plugin_AbstractPlugin
         endif;
 
         //get records of type
-        $records = get_records('Item', array('type'=>'9'));
+        $records = get_records('Item', array('type'=>'9'),999);
         $results = array();
 
         foreach($records as $record):
