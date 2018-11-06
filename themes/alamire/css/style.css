@@ -440,7 +440,7 @@ h5 {
     font-weight:normal;
     color: #cc6633;
     margin:1.5em 0 0 0;
-    
+
 }
 
 h5.about-header{
@@ -525,7 +525,7 @@ img a {
 /* @end */
 
 #container{
-  margin:1em auto 1em auto;    
+  margin:1em auto 1em auto;
   width: 960px;
 }
 
@@ -562,14 +562,14 @@ header:after {
     overflow:auto;
 }
 
-#site-title { 
+#site-title {
   font-weight: normal;
   font-family: 'Dosis', sans-serif;
   color: #666;
   font-size: 27px;
   line-height:36px;
   text-transform: uppercase;
-  letter-spacing: 3px; 
+  letter-spacing: 3px;
   float:left;
   padding-right: 20px;
     width: 205px;
@@ -587,7 +587,7 @@ header:after {
   font-size: 39px;
   line-height:36px;
   text-transform: uppercase;
-  letter-spacing: .1em; 
+  letter-spacing: .1em;
   width:255px;
   padding: 5px 0;
   margin-left: 10px;
@@ -603,7 +603,7 @@ header:after {
 .alamire-title{
     width:98px;
     font-size:12px;
-    margin-top:10px;    
+    margin-top:10px;
     line-height:17px;
     font-weight:bold;
     text-align:center;
@@ -617,7 +617,7 @@ header:after {
     width:130px;
 }
 
-#search-container {  
+#search-container {
   position: relative;
   line-height: 1.28571em;
   margin:9px 0 70px 0;
@@ -686,9 +686,9 @@ input[type=text],textarea {
   padding:0 0 20px 0;
   margin: 0 0 40px 0;
   border-bottom:1px solid #333;
-  z-index: 50; 
+  z-index: 50;
   letter-spacing: 1px;
-  font-family: "Dosis",sans-serif;  
+  font-family: "Dosis",sans-serif;
 }
 #primary-nav:after {
   content: "\0020";
@@ -719,7 +719,7 @@ input[type=text],textarea {
   list-style-type: none;
   margin: 5px 0;
   float:none;
-  
+
 }
 #primary-nav .navigation {
   position: relative;
@@ -742,7 +742,7 @@ input[type=text],textarea {
   text-decoration: none;
   display: block;
   color:#444;
-  
+
 }
 
 #primary-nav li.current a {
@@ -850,7 +850,7 @@ input[type=text],textarea {
 /* @end */
 /* @group ----- Global selectors ----- */
 #content {
-  overflow: hidden;  
+  overflow: hidden;
   background: #fff;
   position: relative;
   width: 960px;
@@ -932,12 +932,12 @@ input[type=text],textarea {
 }
 
 #secondary {
-  width:  720px;  
+  width:  720px;
   float: left;
   display: inline;
- 
+
 }
-#home #secondary {  
+#home #secondary {
   width: 380px;
 }
 
@@ -981,11 +981,11 @@ input[type=text],textarea {
 
 #content h2 {
   letter-spacing: 0.1em;
-  margin:0 0 2em 0;  
+  margin:0 0 2em 0;
 }
 
 #slider img{
-   width:100%;    
+   width:100%;
    border:1px dotted #cc6633;
 }
 
@@ -1000,14 +1000,14 @@ input[type=text],textarea {
     padding:5px 0px 15px 10px;
     float:right;
     width:80%;
-    
+
 }
 
-#slider .slide-text a{ 
+#slider .slide-text a{
     color:#444;
     font-size:85%;
     line-height: 20px;
-    text-decoration:none;    
+    text-decoration:none;
 }
 
 
@@ -1052,7 +1052,7 @@ input[type=text],textarea {
   margin-top: 0;
 }
 
-#recent-items h2 {    
+#recent-items h2 {
   margin:0 0 2em 0;
 }
 
@@ -1132,9 +1132,9 @@ ul.title-list {
 .items.show h3 {
   margin:0 15px 0 0;
   padding:0;
-  margin-right:10px;  
+  margin-right:10px;
   color: #cc6633;
-  font-size: 14px;  
+  font-size: 14px;
   white-space:nowrap;
 }
 
@@ -1142,7 +1142,7 @@ ul.title-list {
     margin-bottom:10px;
 }
 
-.show-table td{   
+.show-table td{
     margin:0;
     border:none;
     vertical-align:top;
@@ -1164,7 +1164,7 @@ ul.title-list {
 }
 
 .items.show .element-text {
-    
+
 }
 
 /* Items Classes*/
@@ -1176,7 +1176,7 @@ ul.title-list {
 
 .browse .item {
   clear: both;
-  border-bottom: 1px solid #eee;  
+  border-bottom: 1px solid #eee;
   padding: 3em 0;
   float: left;
   width: 100%;
@@ -1188,7 +1188,7 @@ ul.title-list {
 
 .item-pagination {
   clear: both;
-  overflow: hidden;  
+  overflow: hidden;
   margin-top:80px;
   padding-top:40px;
   border-top:1px solid #333;
@@ -1197,7 +1197,7 @@ ul.title-list {
 }
 
 .item-pagination li{
-  float:none;    
+  float:none;
   padding:5px 0;
 }
 
@@ -1208,7 +1208,7 @@ ul.title-list {
 }
 
 .item-pagination .next a {
- 
+
 }
 
 .item .tags {
@@ -1237,7 +1237,7 @@ ul.title-list {
     width:60%;
 }
 
-#side-gallery{    
+#side-gallery{
     float:left;
     width:100%;
 }
@@ -1245,18 +1245,18 @@ ul.title-list {
 #side-gallery img{
     overflow:hidden;
     width:100%;
-    margin-bottom:40px;    
+    margin-bottom:40px;
     display:block;
 }
 
 .images-link{
     float:right;
-    width:71%; 
+    width:71%;
 }
 .images-link a{
     font-family: 'Dosis',sans-serif;
     text-decoration: none;
-    text-transform:uppercase; 
+    text-transform:uppercase;
     border-bottom:1px solid #cc6633;
     padding:3px 0;
 }
@@ -2057,6 +2057,22 @@ footer nav + p {
   margin-right: auto;
 }
 
+.category-tree ul{
+  margin: 0.2rem 0;
+  list-style: none;
+  padding-left:0;
+}
+
+.category-tree ul ul{
+  list-style:disc;
+  padding-left:1.5rem;
+}
+
+.category-tree ul ul ul{
+  list-style:circle;
+  padding-left:1.5rem;
+}
+
 #contact-form input[type="checkbox"], #contact-form input[type="radio"] {
   vertical-align: middle;
 }
@@ -2209,5 +2225,3 @@ footer nav + p {
 
   /* @end */
 }
-
-
