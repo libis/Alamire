@@ -37,37 +37,30 @@ class ShortcodeCitiesPlugin extends Omeka_Plugin_AbstractPlugin
             continue;
           endif;
           $inst = $texts['Manuscript Item Type Metadata']['Holding institution'][0];
-          $inst = explode(' - ', $inst);
-          $cities = $texts['Manuscript Item Type Metadata']['Holding institution'];
           $cats = $texts['Manuscript Item Type Metadata']['Category'];
 
           foreach ($cats as $cat) {
             if($cat == $category):
-              $results[$cat][$inst[0]][$inst[1]][$texts['Manuscript Item Type Metadata']['Manuscript label'][0]] = '<a href="'.record_url($record).'">'.$texts['Manuscript Item Type Metadata']['Manuscript label'][0].'</a>';
+              $results[$cat][$inst][$texts['Manuscript Item Type Metadata']['Manuscript label'][0]] = '<a href="'.record_url($record).'">'.$texts['Manuscript Item Type Metadata']['Manuscript label'][0].'</a>';
             elseif($category == null):
-              $results['All'][$inst[0]][$inst[1]][$texts['Manuscript Item Type Metadata']['Manuscript label'][0]] = '<a href="'.record_url($record).'">'.$texts['Manuscript Item Type Metadata']['Manuscript label'][0].'</a>';
+              $results['All'][$inst][$texts['Manuscript Item Type Metadata']['Manuscript label'][0]] = '<a href="'.record_url($record).'">'.$texts['Manuscript Item Type Metadata']['Manuscript label'][0].'</a>';
             endif;
           }
 
         endforeach;
 
         $html = '<div class="category-tree"><ul>';
-        foreach($results as $category=>$cities):
+        foreach($results as $category=>$insts):
           //sort on city
-          ksort($cities);
+          ksort($insts);
           //echo "<li>".$category."<ul>";
 
-          foreach($cities as $city=>$insts):
-            ksort($insts);
-            $html .= "<li>".$city."<ul>";
-            foreach($insts as $inst=>$values):
-              ksort($values);
-              $html .=  "<li>".$inst."<ul>";
+          foreach($insts as $inst=>$values):
+            ksort($values);
+            $html .= "<li>".$inst."<ul>";
               foreach($values as $value):
                 $html .= "<li>".$value."</li>";
               endforeach;
-              $html .= "</ul></li>";
-            endforeach;
             $html .= "</ul></li>";
           endforeach;
           //echo "</ul></li>";
