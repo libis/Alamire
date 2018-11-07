@@ -42,8 +42,10 @@ class ShortcodeCitiesPlugin extends Omeka_Plugin_AbstractPlugin
           $cats = $texts['Manuscript Item Type Metadata']['Category'];
 
           foreach ($cats as $cat) {
-            if($cat == $category || $category == null):
+            if($cat == $category):
               $results[$cat][$inst[0]][$inst[1]][$texts['Manuscript Item Type Metadata']['Manuscript label'][0]] = '<a href="'.record_url($record).'">'.$texts['Manuscript Item Type Metadata']['Manuscript label'][0].'</a>';
+            elseif($category == null):
+              $results['All'][$inst[0]][$inst[1]][$texts['Manuscript Item Type Metadata']['Manuscript label'][0]] = '<a href="'.record_url($record).'">'.$texts['Manuscript Item Type Metadata']['Manuscript label'][0].'</a>';
             endif;
           }
 

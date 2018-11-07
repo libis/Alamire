@@ -2077,19 +2077,23 @@ footer nav + p {
 }
 
 .search-link-wrapper{
-  margin-top: 25px; text-align: center;
+  margin-top: 30px; text-align: center;
+}
+
+.search-link-wrapper h4{
+  margin-bottom: 15px;
 }
 
 .search-link{
-  width: 32%;display: inline-block;
+  width: 28%;display: inline-block;
 }
 
 .search-link:first-of-type{
-  margin-right: 1.4%;
+  margin-right: 7%;
 }
 
 .search-link:last-of-type{
-  margin-left: 1.4%;
+  margin-left: 7%;
 }
 
 .search-link h3{
