@@ -1250,7 +1250,7 @@ ul.title-list {
 }
 
 .category-gallery img{
-    margin-bottom:5px;
+    margin-bottom:5px !important;
 }
 
 .caption{
