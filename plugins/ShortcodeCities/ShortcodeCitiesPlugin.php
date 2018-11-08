@@ -52,18 +52,16 @@ class ShortcodeCitiesPlugin extends Omeka_Plugin_AbstractPlugin
         $html = '<div class="category-tree"><ul>';
         foreach($results as $category=>$insts):
           //sort on city
-          ksort($insts);
-          //echo "<li>".$category."<ul>";
+          $insts = natksort($insts);
 
           foreach($insts as $inst=>$values):
-            ksort($values);
+            $values = natksort($values);
             $html .= "<li>".$inst."<ul>";
               foreach($values as $value):
                 $html .= "<li>".$value."</li>";
               endforeach;
             $html .= "</ul></li>";
           endforeach;
-          //echo "</ul></li>";
 
         endforeach;
         $html .= '</ul></div>';

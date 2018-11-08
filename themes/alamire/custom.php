@@ -117,4 +117,15 @@ function libis_city_list($category = null){
 
 }
 
+function natksort($array) {
+  // Like ksort but uses natural sort instead
+  $keys = array_keys($array);
+  natsort($keys);
+
+  foreach ($keys as $k)
+    $new_array[$k] = $array[$k];
+
+  return $new_array;
+}
+
 ?>
