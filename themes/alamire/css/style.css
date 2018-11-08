@@ -1249,6 +1249,15 @@ ul.title-list {
     display:block;
 }
 
+.category-gallery img{
+    margin-bottom:5px;
+}
+
+.caption{
+  margin:0 0 40px 0;
+  font-size: 0.9rem;
+}
+
 .images-link{
     float:right;
 }
