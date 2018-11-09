@@ -1,7 +1,7 @@
 <?php echo head(array('bodyid'=>'home', 'bodyclass' =>'two-col')); ?>
 <div id="primary">
     <p>Continue to IDEM<br>
-       <a href="<?php echo url('solr-search');?>">I agree to the terms
+       <a href="<?php echo url('search');?>">I agree to the terms
            and conditions of use</a></p>
            <p><a href="<?php echo url('terms');?>">About the terms
            and conditions</a></p>
