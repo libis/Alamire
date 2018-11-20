@@ -38,9 +38,9 @@
     <?php if($slug == "carillon"):?>
       <div id="side-gallery" class="category-gallery">
         <img src="https://idemdatabase.org/files/thumbnails/63c24736de39e75888937647452a98f4.jpg">
-        <p class="caption">B-Ba-ms-3814</p>
-        <img src="https://idemdatabase.org/files/thumbnails/63116d2d591a525efd4d438ddf767db4.jpg">
         <p class="caption">B-MEjd-ms-ss</p>
+        <img src="https://idemdatabase.org/files/thumbnails/63116d2d591a525efd4d438ddf767db4.jpg">
+        <p class="caption"></p>
       </div>
     <?php endif;?>
 
